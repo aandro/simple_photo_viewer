@@ -1,0 +1,20 @@
+﻿<UserControl x:Class="SimplePhotoViewer.Views.DetailedView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             xmlns:local="clr-namespace:SimplePhotoViewer.Views"
+             xmlns:behaviors="clr-namespace:SimplePhotoViewer.Behaviors"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+
+    <Grid  Background="LightBlue" Focusable="True">
+        <Grid.InputBindings>
+            <KeyBinding Key="Esc" Command="{Binding NavigationCommand}" />
+        </Grid.InputBindings>
+        <i:Interaction.Behaviors>
+            <behaviors:KeyBindingBehavior/>
+        </i:Interaction.Behaviors>
+    </Grid>
+</UserControl>
