@@ -4,13 +4,17 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             xmlns:behaviors="clr-namespace:SimplePhotoViewer.Behaviors"
              xmlns:local="clr-namespace:SimplePhotoViewer.Views"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
 
+    <Grid Background="LightGreen" AllowDrop="True" >
+        <i:Interaction.Behaviors>
+            <behaviors:DropBehavior ExecuteCommand="{Binding ReceiveCommand}"/>
+        </i:Interaction.Behaviors>
 
-    <Grid Background="LightGreen">
-        <Button HorizontalAlignment="Center" VerticalAlignment="Center" Width="200"
-                Content="GO!" Command="{Binding NavigationCommand}"/>
+        <!--<Button HorizontalAlignment="Center" VerticalAlignment="Center" Width="200"
+                Content="GO!" Command="{Binding NavigationCommand}"/>-->
     </Grid>
 </UserControl>

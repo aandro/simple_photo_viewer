@@ -9,7 +9,7 @@ namespace SimplePhotoViewer.Behaviors
     /// <summary>
     /// Due to issues with key bindings and focus on UIElement
     /// </summary>
-    public class KeyBindingBehavior: Behavior<Grid>
+    public class KeyBindingBehavior: Behavior<UIElement>
     {
         protected override void OnAttached()
         {

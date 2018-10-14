@@ -79,7 +79,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Behaviors\DropBehavior.cs" />
     <Compile Include="Behaviors\KeyBindingBehavior.cs" />
+    <Compile Include="Services\IImageRepository.cs" />
+    <Compile Include="Services\ImageRepository.cs" />
     <Compile Include="Services\INavigationService.cs" />
     <Compile Include="Services\NavigationService.cs" />
     <Compile Include="StringConstants.cs" />
