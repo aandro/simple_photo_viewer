@@ -7,5 +7,6 @@ namespace SimplePhotoViewer.Services
     {
         ObservableCollection<ImageModel> Images { get; }
         void Add(string filePath);
+        void SetCurrent(ImageModel current);
     }
 }

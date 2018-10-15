@@ -31,10 +31,10 @@ namespace SimplePhotoViewer.ViewModels
         public ICommand GetPreviousCommand { get; }
 
         public bool IsNextActive => CurrentContent != null
-                    && _imageEnumeration.IsNextAvailable(CurrentContent.Index);
+                    && _imageEnumeration.IsNextAvailable();
 
         public bool IsPreviousActive => CurrentContent != null 
-                    && _imageEnumeration.IsPreviousAvailable(CurrentContent.Index);
+                    && _imageEnumeration.IsPreviousAvailable();
 
         private ImageModel _currentContent;
         public ImageModel CurrentContent
@@ -79,7 +79,7 @@ namespace SimplePhotoViewer.ViewModels
                 return;
             }
 
-            var nextElement = _imageEnumeration.GetNext(CurrentContent.Index);
+            var nextElement = _imageEnumeration.GetNext();
             CurrentContent = nextElement;
         }
 
@@ -90,7 +90,7 @@ namespace SimplePhotoViewer.ViewModels
                 return;
             }
 
-            var nextElement = _imageEnumeration.GetPrevious(CurrentContent.Index);
+            var nextElement = _imageEnumeration.GetPrevious();
             CurrentContent = nextElement;
         }
     }

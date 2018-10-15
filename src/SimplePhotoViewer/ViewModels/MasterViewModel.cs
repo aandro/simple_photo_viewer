@@ -56,6 +56,7 @@ namespace SimplePhotoViewer.ViewModels
         private void NavigateToDetailed(object parameter)
         {
             _selectedContent = (ImageModel) parameter;
+            _imageRepository.SetCurrent(_selectedContent);
             _navigationService.NavigateToDetailed();
         }
 
