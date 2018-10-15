@@ -6,22 +6,34 @@
              xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
              xmlns:behaviors="clr-namespace:SimplePhotoViewer.Behaviors"
              xmlns:local="clr-namespace:SimplePhotoViewer.Views"
+             xmlns:main="clr-namespace:SimplePhotoViewer"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
 
-    <Grid AllowDrop="True" >
+    <Grid Background="White" AllowDrop="True">
         <i:Interaction.Behaviors>
             <behaviors:DropBehavior ExecuteCommand="{Binding ReceiveCommand}"/>
         </i:Interaction.Behaviors>
 
+        <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center"
+                   Text="{Binding Source={x:Static main:StringConstants.EmptyMasterViewText}}"
+                   Foreground="DarkGray"
+                   Visibility="{Binding IsContentAvailable, Converter={StaticResource InvertedBooleanToVisibilityConverter}}"/>
+
         <ScrollViewer HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
-                      VerticalScrollBarVisibility="Auto">
+                          VerticalScrollBarVisibility="Auto"
+                          Visibility="{Binding IsContentAvailable, Converter={StaticResource BooleanToVisibilityConverter}}">
             <ItemsControl HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
                           ItemsSource="{Binding Images}"
                           ScrollViewer.HorizontalScrollBarVisibility="Auto">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <UniformGrid Columns="4"/>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
-                        <Image Source="{Binding}">
+                        <Image Source="{Binding Content}" Width="200" Stretch="Uniform" Margin="5">
                             <i:Interaction.Behaviors>
                                 <behaviors:DoubleClickBehavior ExecuteCommand="{Binding Path=DataContext.NavigationCommand, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"/>
                             </i:Interaction.Behaviors>

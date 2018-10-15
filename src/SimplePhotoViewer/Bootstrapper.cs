@@ -29,7 +29,10 @@ namespace SimplePhotoViewer
             base.ConfigureContainer();
 
             Container.RegisterType<INavigationService, NavigationService>();
-            Container.RegisterType<IImageRepository, ImageRepository>(new ContainerControlledLifetimeManager());
+
+            var imageRepository = Container.Resolve<ImageRepository>();
+            Container.RegisterInstance<IImageRepository>(imageRepository);
+            Container.RegisterInstance<IImageEnumeration>(imageRepository);
         }    
 
         private void RegisterViews()

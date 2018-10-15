@@ -16,8 +16,42 @@
         <i:Interaction.Behaviors>
             <behaviors:KeyBindingBehavior/>
         </i:Interaction.Behaviors>
-        
-        <Image Source="{Binding CurrentContent}" Width="200" Height="200"/>
-        
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition />
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Image Grid.Column="0" Grid.Row="0" Grid.RowSpan="3" Margin="10"
+               Source="{Binding CurrentContent.Content}" Stretch="UniformToFill"/>
+
+        <Button Grid.Column="1" Grid.Row="0" Width="200"  
+                Content="Forward"
+                Command="{Binding GetNextCommand}"
+                IsEnabled="{Binding IsNextActive}">
+            <Button.InputBindings>
+                <KeyBinding Key="Up" Command="{Binding GetNextCommand}" />
+            </Button.InputBindings>
+            <i:Interaction.Behaviors>
+                <behaviors:KeyBindingBehavior/>
+            </i:Interaction.Behaviors>
+        </Button>
+
+        <Button Grid.Column="1" Grid.Row="2" Width="200" 
+                Content="Backward"
+                Command="{Binding GetPreviousCommand}"
+                IsEnabled="{Binding IsPreviousActive}">
+            <Button.InputBindings>
+                <KeyBinding Key="Down" Command="{Binding GetPreviousCommand}" />
+            </Button.InputBindings>
+            <i:Interaction.Behaviors>
+                <behaviors:KeyBindingBehavior/>
+            </i:Interaction.Behaviors>
+        </Button>
     </Grid>
 </UserControl>

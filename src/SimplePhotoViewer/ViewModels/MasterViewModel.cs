@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
-using System.Windows.Media.Imaging;
 using Prism.Commands;
 using Prism.Mvvm;
 using Prism.Regions;
+using SimplePhotoViewer.Models;
 using SimplePhotoViewer.Services;
 
 namespace SimplePhotoViewer.ViewModels
@@ -14,7 +14,7 @@ namespace SimplePhotoViewer.ViewModels
         private readonly INavigationService _navigationService;
         private readonly IImageRepository _imageRepository;
 
-        private BitmapImage _selectedContent;
+        private ImageModel _selectedContent;
 
         public MasterViewModel(
             INavigationService navigationService,
@@ -27,7 +27,9 @@ namespace SimplePhotoViewer.ViewModels
             ReceiveCommand = new DelegateCommand<object>(ReceiveImage);
         }
 
-        public ObservableCollection<BitmapImage> Images => _imageRepository.Images;
+        public bool IsContentAvailable => _imageRepository.Images.Count > 0;
+
+        public ObservableCollection<ImageModel> Images => _imageRepository.Images;
 
         public ICommand NavigationCommand { get; }
 
@@ -53,7 +55,7 @@ namespace SimplePhotoViewer.ViewModels
 
         private void NavigateToDetailed(object parameter)
         {
-            _selectedContent = (BitmapImage) parameter;
+            _selectedContent = (ImageModel) parameter;
             _navigationService.NavigateToDetailed();
         }
 
@@ -64,6 +66,8 @@ namespace SimplePhotoViewer.ViewModels
             {
                 _imageRepository.Add(file);
             }
+
+            RaisePropertyChanged(nameof(IsContentAvailable));
         }
     }
 }

@@ -1,11 +1,11 @@
-﻿using System.Collections.ObjectModel;
-using System.Windows.Media.Imaging;
+﻿using SimplePhotoViewer.Models;
+using System.Collections.ObjectModel;
 
 namespace SimplePhotoViewer.Services
 {
-    public interface IImageRepository
+    public interface IImageRepository: IImageEnumeration
     {
-        ObservableCollection<BitmapImage> Images { get; }
+        ObservableCollection<ImageModel> Images { get; }
         void Add(string filePath);
     }
 }

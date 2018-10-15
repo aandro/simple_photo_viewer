@@ -36,7 +36,7 @@ namespace SimplePhotoViewer.Behaviors
                 return;
             }
 
-            ExecuteCommand?.Execute(AssociatedObject.Source); 
+            ExecuteCommand?.Execute(AssociatedObject.DataContext); 
         }
 
     }

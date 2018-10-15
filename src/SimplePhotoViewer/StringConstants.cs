@@ -10,5 +10,7 @@ namespace SimplePhotoViewer
     {
         public const string MainRegionName = "MainRegion";
         public const string ContentNavigationParameter = "Content";
+
+        public const string EmptyMasterViewText = "Currently no images to show. Please, drop some images.";
     }
 }
