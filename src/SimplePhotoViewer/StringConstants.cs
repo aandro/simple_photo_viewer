@@ -9,5 +9,6 @@ namespace SimplePhotoViewer
     internal static class StringConstants
     {
         public const string MainRegionName = "MainRegion";
+        public const string ContentNavigationParameter = "Content";
     }
 }

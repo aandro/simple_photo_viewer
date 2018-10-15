@@ -9,12 +9,15 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
 
-    <Grid  Background="LightBlue" Focusable="True">
+    <Grid Focusable="True">
         <Grid.InputBindings>
             <KeyBinding Key="Esc" Command="{Binding NavigationCommand}" />
         </Grid.InputBindings>
         <i:Interaction.Behaviors>
             <behaviors:KeyBindingBehavior/>
         </i:Interaction.Behaviors>
+        
+        <Image Source="{Binding CurrentContent}" Width="200" Height="200"/>
+        
     </Grid>
 </UserControl>

@@ -79,6 +79,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Behaviors\DoubleClickBehavior.cs" />
     <Compile Include="Behaviors\DropBehavior.cs" />
     <Compile Include="Behaviors\KeyBindingBehavior.cs" />
     <Compile Include="Services\IImageRepository.cs" />
